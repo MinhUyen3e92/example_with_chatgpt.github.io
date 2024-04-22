@@ -1,0 +1,32 @@
+$date
+	Mon Apr 22 20:54:22 2024
+$end
+$version
+	Icarus Verilog
+$end
+$timescale
+	1ps
+$end
+$scope module testbench_mux_2to1 $end
+$var wire 1 ! data_out $end
+$var reg 2 " data_in [1:0] $end
+$var reg 1 # sel $end
+$scope module dut $end
+$var wire 2 $ data_in [1:0] $end
+$var wire 1 # sel $end
+$var reg 1 ! data_out $end
+$upscope $end
+$upscope $end
+$enddefinitions $end
+#0
+$dumpvars
+b1 $
+0#
+b1 "
+1!
+$end
+#10000
+b10 "
+b10 $
+1#
+#20000
