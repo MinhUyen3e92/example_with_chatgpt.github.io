@@ -1,0 +1,67 @@
+#! /usr/bin/vvp
+:ivl_version "10.3 (stable)";
+:ivl_delay_selection "TYPICAL";
+:vpi_time_precision - 12;
+:vpi_module "system";
+:vpi_module "vhdl_sys";
+:vpi_module "v2005_math";
+:vpi_module "va_math";
+S_0x55a01849e0f0 .scope module, "testbench_counter_4bit" "testbench_counter_4bit" 2 3;
+ .timescale -9 -12;
+v0x55a0184ae600_0 .var "clk", 0 0;
+v0x55a0184ae6d0_0 .net "count", 3 0, v0x55a0184ae400_0;  1 drivers
+v0x55a0184ae7a0_0 .var "reset", 0 0;
+S_0x55a01849e270 .scope module, "dut" "counter_4bit" 2 13, 3 1 0, S_0x55a01849e0f0;
+ .timescale 0 0;
+    .port_info 0 /INPUT 1 "clk"
+    .port_info 1 /INPUT 1 "reset"
+    .port_info 2 /OUTPUT 4 "count"
+v0x55a018468030_0 .net "clk", 0 0, v0x55a0184ae600_0;  1 drivers
+v0x55a0184ae400_0 .var "count", 3 0;
+v0x55a0184ae4e0_0 .net "reset", 0 0, v0x55a0184ae7a0_0;  1 drivers
+E_0x55a01849e9c0 .event posedge, v0x55a0184ae4e0_0, v0x55a018468030_0;
+    .scope S_0x55a01849e270;
+T_0 ;
+    %wait E_0x55a01849e9c0;
+    %load/vec4 v0x55a0184ae4e0_0;
+    %flag_set/vec4 8;
+    %jmp/0xz  T_0.0, 8;
+    %pushi/vec4 0, 0, 4;
+    %assign/vec4 v0x55a0184ae400_0, 0;
+    %jmp T_0.1;
+T_0.0 ;
+    %load/vec4 v0x55a0184ae400_0;
+    %addi 1, 0, 4;
+    %assign/vec4 v0x55a0184ae400_0, 0;
+T_0.1 ;
+    %jmp T_0;
+    .thread T_0;
+    .scope S_0x55a01849e0f0;
+T_1 ;
+    %pushi/vec4 0, 0, 1;
+    %store/vec4 v0x55a0184ae600_0, 0, 1;
+    %delay 5000, 0;
+    %pushi/vec4 1, 0, 1;
+    %store/vec4 v0x55a0184ae600_0, 0, 1;
+    %delay 5000, 0;
+    %jmp T_1;
+    .thread T_1;
+    .scope S_0x55a01849e0f0;
+T_2 ;
+    %vpi_call 2 29 "$dumpfile", "counter_4bit.vcd" {0 0 0};
+    %vpi_call 2 30 "$dumpvars", 32'sb00000000000000000000000000000000, S_0x55a01849e0f0 {0 0 0};
+    %pushi/vec4 1, 0, 1;
+    %store/vec4 v0x55a0184ae7a0_0, 0, 1;
+    %delay 10000, 0;
+    %pushi/vec4 0, 0, 1;
+    %store/vec4 v0x55a0184ae7a0_0, 0, 1;
+    %delay 100000, 0;
+    %vpi_call 2 39 "$finish" {0 0 0};
+    %end;
+    .thread T_2;
+# The file index is used to find the file name in the following table.
+:file_names 4;
+    "N/A";
+    "<interactive>";
+    "counter_4bit_tb.v";
+    "counter_4bit.v";

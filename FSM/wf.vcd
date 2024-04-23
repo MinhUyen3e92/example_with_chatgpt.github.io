@@ -1,0 +1,69 @@
+$date
+	Mon Apr 22 22:09:45 2024
+$end
+$version
+	Icarus Verilog
+$end
+$timescale
+	1ps
+$end
+$scope module testbench_moore_fsm $end
+$var wire 1 ! out $end
+$var reg 1 " clk $end
+$var reg 1 # in $end
+$var reg 1 $ reset $end
+$scope module dut $end
+$var wire 1 " clk $end
+$var wire 1 # in $end
+$var wire 1 $ reset $end
+$var reg 1 ! out $end
+$var reg 2 % state [1:0] $end
+$upscope $end
+$upscope $end
+$enddefinitions $end
+#0
+$dumpvars
+b0 %
+1$
+0#
+0"
+1!
+$end
+#5000
+1"
+#10000
+0"
+0$
+#15000
+1"
+#20000
+0"
+#25000
+1"
+#30000
+0"
+1#
+#35000
+0!
+b1 %
+1"
+#40000
+0"
+0#
+#45000
+1!
+b0 %
+1"
+#50000
+0"
+#55000
+1"
+#60000
+0"
+1#
+#65000
+0!
+b1 %
+1"
+#70000
+0"
